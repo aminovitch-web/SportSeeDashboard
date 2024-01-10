@@ -1,0 +1,17 @@
+#root {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+  
+  }
+  
+  .App {
+    width: 100%;
+    min-height: 780px;
+  }
+  
+  .layout_wrapper {
+    display: flex;
+    width: 100%;
+    min-height: 689px;
+  }
