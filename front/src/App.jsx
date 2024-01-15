@@ -16,7 +16,7 @@ export default function App() {
         <Sidebar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/:userId" element={<Dashboard />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </div>
