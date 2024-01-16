@@ -1,0 +1,53 @@
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #f5f5f5;
+    font-size: 20px;
+}
+
+.home_container {
+    margin-top: -70px; 
+  }
+  
+
+.userList {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 50px; 
+}
+
+.userprofile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    text-decoration:none;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    transition: transform 0.3s ease; 
+}
+
+.userprofile:hover {
+    transform: scale(1.1); 
+}
+
+.userprofile img {
+    width: 80%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.userprofile p {
+    margin-top: 10px;
+    color: #800020;
+    font-weight: bold;
+}

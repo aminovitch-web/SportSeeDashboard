@@ -5,6 +5,7 @@ import fitnessIcon from "../../assets/images/Sidebar/fitnessIcon.png";
 import swimmingIcon from "../../assets/images/Sidebar/swimmingIcon.png";
 import yogaIcon from "../../assets/images/Sidebar/yogaIcon.png";
 
+
 export default function Sidebar() {
     return (
         <>
