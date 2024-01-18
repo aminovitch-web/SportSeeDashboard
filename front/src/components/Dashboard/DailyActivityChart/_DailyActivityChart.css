@@ -1,0 +1,15 @@
+.activity_wrapper {
+    background-color: var(--background-color);
+    height: 102%;
+    position: relative;
+    border-radius: 5px;
+    padding:9px;
+}
+
+.title_charts {
+    position: absolute;
+    top: 2em;
+    left: 30px;
+    font-size: 15px;
+    font-weight: 600;
+}
