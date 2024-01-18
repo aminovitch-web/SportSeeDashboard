@@ -8,8 +8,8 @@ export async function getUserPerformance(userId) {
         if (!response.ok) {
             throw new Error('Failed to fetch user performance data');
         }
-        const data = await response.json();
-        return data;
+        const jsonData = await response.json();
+        return jsonData.data;
     } catch (error) {
         console.error(error);
         throw error;
@@ -22,8 +22,8 @@ export async function getAverageSessions(userId) {
         if (!response.ok) {
             throw new Error('Failed to fetch user average sessions data');
         }
-        const data = await response.json();
-        return data.sessions;
+        const jsonData = await response.json();
+        return jsonData.data.sessions;
     } catch (error) {
         console.error(error);
         throw error;
@@ -50,10 +50,11 @@ export async function getActivity(userId) {
         if (!response.ok) {
             throw new Error('Failed to fetch user activity data');
         }
-        const data = await response.json();
-        return data.sessions;
+        const jsonData = await response.json();
+        return jsonData.data.sessions; 
     } catch (error) {
         console.error(error);
         throw error;
     }
 }
+
