@@ -6,6 +6,7 @@
 }
 
 :root {
+  --graph-red-color: #ff0000;
   --primary-color: #020203;
   --secondary-color: #FF0101;
   /* --background-color: #fbfbfb; */

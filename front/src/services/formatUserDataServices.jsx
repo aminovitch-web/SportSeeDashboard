@@ -7,3 +7,21 @@ export function formatDailyActivityData(sessions) {
     }));
 }
 
+export function formatAverageSessionsData(sessions) {
+    const daysOfWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+    return sessions.map((session) => {
+       
+        const dayName = daysOfWeek[session.day - 1];
+
+        return {
+            dayName: dayName,
+            sessionLength: Number(session.sessionLength) || 0,
+        };
+    });
+}
+
+
+
+
+
+

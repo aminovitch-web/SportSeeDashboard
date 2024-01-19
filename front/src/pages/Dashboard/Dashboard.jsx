@@ -84,7 +84,7 @@ export default function Dashboard() {
                       <motion.div
                       {...fadeInAnimation}
                       >
-                      <PerformanceChart todayScore={user.data.todayScore}/>
+                      <PerformanceChart/>
                       </motion.div>
                       </div>
                     </div>
