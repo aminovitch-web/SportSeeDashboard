@@ -4,6 +4,7 @@ import HeroWelcome from "../../components/Dashboard/HeroWelcome/HeroWelcome";
 import DailyActivityChart from "../../components/Dashboard/DailyActivityChart/DailyActivityChart";  
 import AverageSessionChart from "../../components/Dashboard/AverageSessionChart/AverageSessionChart";
 import PerformanceChart from "../../components/Dashboard/PerformanceChart/PerformanceChart";
+import GoalChart from "../../components/Dashboard/GoalChart/GoalChart";
 import MacroNutritionContainer from "../../components/Dashboard/MacroNutritionContainer/MacroNutritionContainer";
 import { getUserInfos } from "../../services/userServices";
 import Loader from "../../components/Loader/Loader";
@@ -88,6 +89,7 @@ export default function Dashboard() {
                       >
                       <PerformanceChart/>
                       </motion.div>
+                      <GoalChart todayScore={user.data.todayScore}/>
                       </div>
                     </div>
                     <div className="dashboard_section_right">
