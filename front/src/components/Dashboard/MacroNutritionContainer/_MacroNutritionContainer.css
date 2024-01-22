@@ -1,0 +1,15 @@
+.nutrition_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2.9em;
+    align-items: center;
+    width: 100%;
+}
+
+@media (min-width: 1025px) {
+    .nutrition_wrapper {
+        width: 90%;
+        justify-content: space-between;
+    }
+}

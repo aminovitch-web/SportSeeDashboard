@@ -10,9 +10,7 @@ export function formatDailyActivityData(sessions) {
 export function formatAverageSessionsData(sessions) {
     const daysOfWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
     return sessions.map((session) => {
-       
         const dayName = daysOfWeek[session.day - 1];
-
         return {
             dayName: dayName,
             sessionLength: Number(session.sessionLength) || 0,
@@ -20,8 +18,11 @@ export function formatAverageSessionsData(sessions) {
     });
 }
 
-
-
-
-
+export function formatValueMacroNutrition(value) {
+    let formattedValue = value.toString();
+    if (formattedValue.length > 3) {
+        formattedValue = formattedValue.slice(0, 1) + ',' + formattedValue.slice(1);
+    }
+    return formattedValue;
+}
 

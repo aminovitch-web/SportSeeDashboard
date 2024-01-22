@@ -4,7 +4,7 @@ import HeroWelcome from "../../components/Dashboard/HeroWelcome/HeroWelcome";
 import DailyActivityChart from "../../components/Dashboard/DailyActivityChart/DailyActivityChart";  
 import AverageSessionChart from "../../components/Dashboard/AverageSessionChart/AverageSessionChart";
 import PerformanceChart from "../../components/Dashboard/PerformanceChart/PerformanceChart";
-import MacroNutritionCard from "../../components/Dashboard/MacroNutritionCard/MacroNutritionCard";
+import MacroNutritionContainer from "../../components/Dashboard/MacroNutritionContainer/MacroNutritionContainer";
 import { getUserInfos } from "../../services/userServices";
 import Loader from "../../components/Loader/Loader";
 import "./_Dashboard.css";
@@ -55,6 +55,8 @@ export default function Dashboard() {
 
     if (user) {
         console.log("user :", user.data.userInfos.firstName);
+        console.log("keydata :", user.data.keyData);
+        
         return (
             <div id="dashboard_wrapper">
                 <div className="dashboard_header">
@@ -89,10 +91,7 @@ export default function Dashboard() {
                       </div>
                     </div>
                     <div className="dashboard_section_right">
-                      <motion.div
-                      {...fadeInAnimation}>
-                       <MacroNutritionCard keyData={user.data.keyData}/>
-                      </motion.div>
+                       <MacroNutritionContainer keyData={user.data.keyData}/>
                       </div>
                   </div>
             </div>
