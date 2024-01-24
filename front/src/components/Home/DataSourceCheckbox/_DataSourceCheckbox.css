@@ -1,0 +1,51 @@
+
+.datasourcecheckbox {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom:100px;
+  }
+  
+  .datasourcecheckbox label {
+    margin-right: 20px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .datasourcecheckbox input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  
+  .datasourcecheckbox input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    background-clip: content-box;
+    border: 2px solid #bbbbbb;
+    background-color: white;
+    border-radius: 50%;
+  }
+  
+
+  .datasourcecheckbox input[type="radio"]:checked {
+    background-color: var(--secondary-color)
+  }
+  
+ 
+  .datasourcecheckbox input[type="radio"]:hover {
+    border-color: #888;
+  }
+  
+  
+  .datasourcecheckbox p {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+  }

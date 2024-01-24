@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './_Home.css';
+import DataSourceCheckbox from '../../components/Home/DataSourceCheckbox/DataSourceCheckbox';
 import userIcon from '../../assets/images/userIcon.png';
 import { motion } from 'framer-motion';
 import { fadeInAnimation } from '../../utils/animation/FadeInAnimation';
@@ -10,6 +11,11 @@ export default function Home() {
     <>
       <div id="home">
         <div class="home_container">
+        <motion.div 
+        {...fadeInAnimation}
+        >
+        <DataSourceCheckbox />
+        </motion.div>
         <motion.div
          {...fadeInAnimation}
          >
