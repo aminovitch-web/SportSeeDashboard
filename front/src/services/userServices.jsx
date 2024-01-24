@@ -74,3 +74,18 @@ export async function getActivity(userId) {
     }
 }
 
+export async function getAllUsers() {
+    const userIDs = [12,18];
+    let usersData = [];
+
+    for (let userID of userIDs){
+        try{
+            const userInfo = await getUserInfos(userID);
+            usersData.push(userInfo);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    return usersData;
+}

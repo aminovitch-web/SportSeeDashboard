@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './_DataSourceCheckbox.css';
 
-export default function DataSourceCheckbox() {
-  
+export default function DataSourceCheckbox({ onDataSourceChange }) {
   const [selection, setSelection] = useState(localStorage.getItem('dataSelection') || 'API');
 
-  
   useEffect(() => {
     localStorage.setItem('dataSelection', selection);
     
@@ -14,9 +12,10 @@ export default function DataSourceCheckbox() {
     }, 0);
   }, [selection]);
 
-  
   const handleSelectionChange = (event) => {
-    setSelection(event.target.value);
+    const newSelection = event.target.value;
+    setSelection(newSelection);
+    onDataSourceChange(newSelection);
   };
 
   return (
