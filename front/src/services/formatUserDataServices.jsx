@@ -32,3 +32,30 @@ export function formatTodayScore (todayScore){
 
     return data;
 }
+
+export function formatUserPerformance(response) {
+    const {  data: performanceData } = response;
+
+    if (!performanceData || !Array.isArray(performanceData)) {
+        console.error("Les données de performance ne sont pas un tableau:", performanceData);
+        return [];
+    }
+
+    const translateKind = {
+        1: 'Cardio',
+        2: 'Energie',
+        3: 'Endurance',
+        4: 'Force',
+        5: 'Vitesse',
+        6: 'Intensité',
+    };
+
+    const sortedPerformanceData = performanceData.sort((a, b) => b.kind - a.kind);
+
+    
+    return sortedPerformanceData.map(perf => ({
+        kind: translateKind[perf.kind] || 'Inconnu',
+        value: perf.value,
+        fullMark: 200,
+    }));
+}
