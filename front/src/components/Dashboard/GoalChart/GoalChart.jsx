@@ -8,15 +8,15 @@ import {
 } from 'recharts';
 import React from 'react'
 
-export default function GoalChart({ todayScore }) {
-  const data = formatTodayScore(todayScore);
-  console.log("todayScore :", data);
+export default function GoalChart({ userData }) {
+  const data = formatTodayScore(userData);
+  console.log("Score formaté :", data);
+  
   return (
     <div className="score_wrapper">
       <h3 className="score_title">Score</h3>
       <div className="inner-circle">
-      <p className="score-text">{data[0].score} %</p>
-
+        <p className="score-text">{data[0].score.toFixed(0)}%</p>
         <p className="sub-text">de votre objectif</p>
       </div>
       <ResponsiveContainer width="100%" height={260}>

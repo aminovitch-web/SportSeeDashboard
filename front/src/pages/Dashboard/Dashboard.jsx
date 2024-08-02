@@ -89,7 +89,7 @@ export default function Dashboard() {
                       >
                       <PerformanceChart/>
                       </motion.div>
-                      <GoalChart todayScore={user.data.todayScore}/>
+                      <GoalChart userData={user.data} />
                       </div>
                     </div>
                     <div className="dashboard_section_right">

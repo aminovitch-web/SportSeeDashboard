@@ -26,8 +26,9 @@ export function formatValueMacroNutrition(value) {
     return formattedValue;
 }
 
-export function formatTodayScore (todayScore){
-    const pourcentScore = todayScore ? todayScore * 100 : 0;
+export function formatTodayScore(userData) {
+    const score = userData.todayScore !== undefined ? userData.todayScore : (userData.score !== undefined ? userData.score : 0);
+    const pourcentScore = score * 100;
     const data = [{ name: 'score', score: pourcentScore, fill: '#FF0101'}];
 
     return data;
