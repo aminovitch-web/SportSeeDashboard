@@ -1,4 +1,5 @@
 .performance_wrapper {
+    /* stylelint-disable-next-line */
     background-color: var(--primary-color);
     width: 260px;
     height: 260px;
