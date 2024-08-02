@@ -14,12 +14,27 @@ import { getAverageSessions } from "../../../services/userServices";
 import { formatAverageSessionsData } from "../../../services/formatUserDataServices";
 import Loader from "../../Loader/Loader";
 import CustomCursor from "../../CustomCursor/CustomCursor";
-let formattedData;
 
 export default function _AverageSessionChart() {
     const { userId } = useParams();
     const [userActivity, setUserActivity] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [chartSize, setChartSize] = useState(260);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth === 1024 && window.innerHeight === 780) {
+                setChartSize(200);
+            } else {
+                setChartSize(260);
+            }
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     useEffect(() => {
         if (!userId) {
@@ -34,7 +49,7 @@ export default function _AverageSessionChart() {
                     "Sessions d'activité moyenne (avg) récupérées :",
                     sessions
                 );
-                formattedData = formatAverageSessionsData(sessions);
+                const formattedData = formatAverageSessionsData(sessions);
                 setUserActivity(formattedData);
                 console.log(
                     "Données d'activité moyenne (avg) formatées :",
@@ -63,15 +78,16 @@ export default function _AverageSessionChart() {
             </div>
         );
     }
+
     return (
         <div className="session_wrapper">
             <p className="session_title">durée moyenne des sessions</p>
-            <ResponsiveContainer width="100%" height={260}>
+            <ResponsiveContainer width="100%" height={chartSize}>
                 <LineChart
                     width={230}
-                    height={250}
-                    data={formattedData}
-                    margin={{ top: 80, right: 20, bottom: 0, left: 20 }}
+                    height={chartSize}
+                    data={userActivity}
+                    margin={{ top: chartSize * 0.3, right: 20, bottom: 0, left: 20 }}
                 >
                     <XAxis
                         dataKey="dayName"
