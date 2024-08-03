@@ -12,13 +12,15 @@ import "./_Dashboard.css";
 import { motion } from "framer-motion";
 import { fadeInAnimation } from '../../utils/animation/FadeInAnimation';
 
-
+// Main Dashboard component
 export default function Dashboard() {
+    // State and hooks
     const { userId } = useParams();
     const [user, setUser] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
+    // Effect to fetch user data
     useEffect(() => {
         console.log("user id :", userId);
         if (!userId) {
@@ -42,60 +44,58 @@ export default function Dashboard() {
         return () => clearTimeout(timer);
     }, [userId]);
 
+    // Redirect if no userId
     if (!userId) {
         return <Navigate to="/error404" />;
     }
 
+    // Error handling
     if (error) {
         return <Navigate to="/error404" />;
     }
 
+    // Loading state
     if (isLoading) {
         return <Loader />;
     }
 
+    // Render dashboard when user data is available
     if (user) {
         console.log("user :", user.data.userInfos.firstName);
         console.log("keydata :", user.data.keyData);
         
         return (
             <div id="dashboard_wrapper">
+                {/* Dashboard header */}
                 <div className="dashboard_header">
-                    <motion.div
-                        {...fadeInAnimation}
-                    >
-                        <HeroWelcome
-                            firstName={user.data.userInfos.firstName}
-                        />
+                    <motion.div {...fadeInAnimation}>
+                        <HeroWelcome firstName={user.data.userInfos.firstName} />
                     </motion.div>
                 </div>
+                {/* Dashboard content */}
                 <div className="dashboard_content">
-                  <div className="dashboard_section_left">
-                    <div className="dashboard_section_left_first">
-                      <motion.div
-                        {...fadeInAnimation}
-                      >
-                      <DailyActivityChart/>
-                      </motion.div>
+                    {/* Left section */}
+                    <div className="dashboard_section_left">
+                        <div className="dashboard_section_left_first">
+                            <motion.div {...fadeInAnimation}>
+                                <DailyActivityChart/>
+                            </motion.div>
+                        </div>
+                        <div className="dashboard_section_left_second">
+                            <motion.div {...fadeInAnimation}>
+                                <AverageSessionChart/>
+                            </motion.div>
+                            <motion.div {...fadeInAnimation}>
+                                <PerformanceChart/>
+                            </motion.div>
+                            <GoalChart userData={user.data} />
+                        </div>
                     </div>
-                    <div className="dashboard_section_left_second">
-                      <motion.div
-                      {...fadeInAnimation}
-                      >
-                      <AverageSessionChart/>
-                      </motion.div>
-                      <motion.div
-                      {...fadeInAnimation}
-                      >
-                      <PerformanceChart/>
-                      </motion.div>
-                      <GoalChart userData={user.data} />
-                      </div>
-                    </div>
+                    {/* Right section */}
                     <div className="dashboard_section_right">
-                       <MacroNutritionContainer keyData={user.data.keyData}/>
-                      </div>
-                  </div>
+                        <MacroNutritionContainer keyData={user.data.keyData}/>
+                    </div>
+                </div>
             </div>
         );
     }

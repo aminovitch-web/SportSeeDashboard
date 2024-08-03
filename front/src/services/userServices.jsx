@@ -1,15 +1,26 @@
+// This file contains services for fetching user data from either mock data or a backend API
 
+// Base URLs for mock data and backend API
 const MOCK_BASE_URL = 'http://localhost:5173/src/mocksData/';
 const BACK_BASE_URL = 'http://localhost:3000/user/';
 
+/**
+ * Determines the base URL based on the selected data source
+ * @returns {string} The base URL for data fetching
+ */
 function getBaseUrl() {
     const dataSource = localStorage.getItem('dataSelection');
     const baseUrl = dataSource === 'API' ? BACK_BASE_URL : MOCK_BASE_URL;
     console.log(`Data source is: ${dataSource}, using base URL: ${baseUrl}`);
     return baseUrl;
-  }
-  
+}
 
+/**
+ * Fetches user performance data
+ * @param {number} userId - The ID of the user
+ * @returns {Promise<Object>} The user's performance data
+ * @throws {Error} If the fetch operation fails
+ */
 export async function getUserPerformance(userId) {
     const baseUrl = getBaseUrl();
     const endpoint = baseUrl === MOCK_BASE_URL ? `${userId}/userPerformanceData.json` : `${userId}/performance`;
@@ -26,6 +37,12 @@ export async function getUserPerformance(userId) {
     }
 }
 
+/**
+ * Fetches user average sessions data
+ * @param {number} userId - The ID of the user
+ * @returns {Promise<Array>} The user's average sessions data
+ * @throws {Error} If the fetch operation fails
+ */
 export async function getAverageSessions(userId) {
     const baseUrl = getBaseUrl();
     const endpoint = baseUrl === MOCK_BASE_URL ? `${userId}/userAverageSessions.json` : `${userId}/average-sessions`;
@@ -42,6 +59,12 @@ export async function getAverageSessions(userId) {
     }
 }
 
+/**
+ * Fetches user information
+ * @param {number} userId - The ID of the user
+ * @returns {Promise<Object>} The user's information
+ * @throws {Error} If the fetch operation fails
+ */
 export async function getUserInfos(userId) {
     const baseUrl = getBaseUrl();
     const endpoint = baseUrl === MOCK_BASE_URL ? `${userId}/userData.json` : `${userId}`;
@@ -58,6 +81,12 @@ export async function getUserInfos(userId) {
     }
 }
 
+/**
+ * Fetches user activity data
+ * @param {number} userId - The ID of the user
+ * @returns {Promise<Array>} The user's activity data
+ * @throws {Error} If the fetch operation fails
+ */
 export async function getActivity(userId) {
     const baseUrl = getBaseUrl();
     const endpoint = baseUrl === MOCK_BASE_URL ? `${userId}/userActivityData.json` : `${userId}/activity`;
@@ -74,6 +103,10 @@ export async function getActivity(userId) {
     }
 }
 
+/**
+ * Fetches data for all users
+ * @returns {Promise<Array>} An array of user data objects
+ */
 export async function getAllUsers() {
     const userIDs = [12,18];
     let usersData = [];
